@@ -1,0 +1,21 @@
+{% load static%}
+<html>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<center>
+    <a href="/"><img src="{% static "unnamed.png" %}" alt="Card"><br><br></a>
+            <div class="jumbotron">
+                {% if user.is_authenticated %}
+                <hr class="my-4">
+                <form method="POST" enctype="multipart/form-data">
+                    <!-- Very Important csrf Token -->
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_p }}
+                    </table>
+                    <input type="submit" class="btn btn-primary btn-lg" name="register">
+            </div>{% endif%}
+        </center>
+    </body>
+</html>

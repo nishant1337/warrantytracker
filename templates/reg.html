@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<center>
+    <a href="/"><img src="{% static "unnamed.png" %}" alt="Card"><br><br></a></center>
+    <html>
+				  <br><br><br>
+                  <form method="POST" >
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" name="cuser"><br><br>
+                    <p><a href="/login">Already a user ? login</p><br>
+                
+                </form>
+            </header>
+    
+
+
+	</body>
+</html>

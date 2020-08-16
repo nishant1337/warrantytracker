@@ -1,0 +1,71 @@
+{% load static%}
+<html>
+<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      body{
+        padding: 50px;
+                }
+      .serif{
+        font-family: 'Raleway', sans-serif;
+      }
+
+    </style>
+    
+    </head>
+    <center>
+    <a href="/"><img src="{% static "unnamed.png" %}" alt="Card"><br><br></a>
+        {% if user.is_authenticated %}
+        <h1 class="serif">Welcome  {{user.username}}</h1>
+					<a href="{% url 'logout' %}"><h2>Logout</h2></a>
+				{% else %} 
+					<a href="{% url 'login' %}"><h2>Login</h2></a>
+					<a href="{% url 'reg' %}"><h2>Register</h2></a>
+
+
+				{% endif%}
+              
+
+    {% comment %} <li class="list-group-item d-flex justify-content-between align-items-center" align=right>
+    <h1>Product Name</h1>
+    <h1>Purchase Date</h1>
+    <h1>Product Type</h1>
+    <h1>Submit</h1></center> {% endcomment %}
+    <br><hr>
+{% if user.is_authenticated %}
+  {% for i in bill %}
+        {% comment %} <li class="list-group-item d-flex justify-content-between align-items-center" align=right> {% endcomment %}
+        <br>
+        <h3 class="serif" >Name :{{i.productname}}<br>  
+        Type :{{i.producttype}} <br>
+        Purchase Date :{{i.purchasedate}}<br>
+        Warranty  :{{i.expirydate}}<br>
+        Warranty left : {{ i.expirydate|timeuntil:i.purchasedate }}<br><br>
+        <center><img style="width: 100px; height: 100px;" src="/media/{{i.logo}}"><br><br>
+
+        <form action="getBill" , method='post'>
+        {% csrf_token %}
+        <input type="hidden" name="productid" value="{{i.productname}}" /><br>
+        <input type="submit"  class="btn btn-secondary"> </button>
+        </form><br>
+  {% endfor %}
+  
+</div><br><br>
+<h2><center><a href="/upload">CLICK HERE TO UPLOAD</a>
+{% else %} 
+<h2 >Please login to view content</h2>
+{% endif%}
+{% if not request.user.is_authenticated %}
+{% endif%}
+<br><br>
+
+
+
+
+
+
+
+    

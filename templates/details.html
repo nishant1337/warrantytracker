@@ -1,0 +1,13 @@
+{% load static%}
+<CENTER>
+<div class="jumbotron">
+  <p class="lead">  </p>
+  <hr class="my-4">
+      <a href="/"><img src="{% static "unnamed.png" %}" alt="Card"><br><br></a>
+
+  <img src="{{ user_pr.bill.url }}" class="image_responsive" height="100px" width="100px">
+  <p>
+    {{ user_pr.bill.url }}<BR>
+    {{ user_pr.productname }}</p>
+</div>
+</CENTER>

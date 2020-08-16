@@ -1,0 +1,42 @@
+{% load static%}
+<html>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+    <style>
+      .serif{
+        font-family: 'Raleway', sans-serif;
+      }
+      body{
+        padding: 70px;
+                }
+
+    </style><center>
+    <a href="/"><img src="{% static "unnamed.png" %}" alt="Card"><br><br></a>
+    {% if user.is_authenticated %}
+    <h3 class="serif" >Name :{{name}}<br>  
+        Type :{{type}} <br>
+        Purchase Date : {{date}}<br>
+        Expiry Date: {{edate}}<br>
+        Total Days: {{total}}<br>
+        Used : {{used}}<br><br><br>
+        <div class="progress" style="height:30px">
+            <div class="progress-bar {{color}}" role="progressbar" style="width: {{perc}}%"  aria-valuenow="{{perc}}" aria-valuemin="0" aria-valuemax="{{total}}">{{perc}} %</div>
+          </div>
+
+
+</div><br>
+<center><img style="width: 1000px; height: 1000px;" src="/media/{{path}}"><br><br>
+<a href="/media/{{path}}" download><h2>Click here to Download</h2></a> {% endif%}
+</a>
+
+
+
+
+
+        
+
+
+
+    
